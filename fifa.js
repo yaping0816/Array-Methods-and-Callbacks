@@ -18722,3 +18722,4 @@ export const fifaData = [
     "Away Team Initials": "NED"
   },
 ]
+console.log(fifaData);
