@@ -139,11 +139,26 @@ Create a function called `getCountryWins` that takes the parameters `data` and `
 Hint: Investigate your data to find "team initials"!
 Hint: use `.reduce` */
 
-function getCountryWins(/* code here */) {
-
-    /* code here */
-
-}
+function getCountryWins(data,teamInitials) {
+    const final = getFinals(data);
+    const winnerinitials = final.map(item => {
+      if(item['Home Team Goals'] > item['Away Team Goals']){
+          return item['Home Team Initials'];
+      }
+      else if(item['Home Team Goals'] < item['Away Team Goals']){
+          return item['Away Team Initials'];
+      }
+  });
+   
+     return winnerinitials.reduce((accumulator,item)=> {
+       if(item===teamInitials){
+         return accumulator+1;
+       }else{
+         return accumulator;
+       }
+     },0)  
+  
+  }
 
 
 
